@@ -42,6 +42,7 @@ namespace BookStoreAPIServer
             builder.EntitySet<OrderItem>("OrderItems");
             builder.EntitySet<ApplicationUser>("ApplicationUsers");
             builder.EntitySet<Cart>("Carts");
+            builder.EntitySet<FeaturedItem>("FeaturedItems");
             config.Routes.MapODataServiceRoute("odata", "odata", builder.GetEdmModel());
 
         }
