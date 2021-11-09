@@ -225,6 +225,7 @@
     <Compile Include="Controllers\CouponsController.cs" />
     <Compile Include="Controllers\FeaturedItemsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\WishListItemsController.cs" />
