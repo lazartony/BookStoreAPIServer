@@ -99,19 +99,11 @@ namespace BookStoreAPIServer.Controllers
                 return BadRequest(ModelState);
             }
             var userId = User.Identity.GetUserId();
-            var cart = db.Carts.Find(cartItem.Cart_Id);
-            if(cart.User.Id == userId)
-            {
-                db.CartItems.Add(cartItem);
-                db.SaveChanges();
-
-                return Created(cartItem);
-
-            }
-            else
-            {
-                return Unauthorized();
-            }
+            var cart = db.Carts.Where(e => e.User.Id == userId).First();
+            cartItem.Cart = cart;
+            db.CartItems.Add(cartItem);
+            db.SaveChanges();
+            return Created(cartItem);
             
         }
 
