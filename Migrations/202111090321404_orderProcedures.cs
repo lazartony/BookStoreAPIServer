@@ -7,10 +7,10 @@ namespace BookStoreAPIServer.Migrations
     {
         public override void Up()
         {
-        //TODO: VAlidate the functions
-            //Sql("ALTER TABLE dbo.[Orders] DROP COLUMN TotalValue;" +
-            //    "ALTER TABLE dbo.[Orders] DROP COLUMN TotalDiscount;" +
-            //    "ALTER TABLE dbo.[Orders] DROP COLUMN NetPrice;");
+            //TODO: VAlidate the functions
+            Sql("ALTER TABLE dbo.[Orders] DROP COLUMN TotalValue;" +
+                "ALTER TABLE dbo.[Orders] DROP COLUMN TotalDiscount;" +
+                "ALTER TABLE dbo.[Orders] DROP COLUMN NetPrice;");
             Sql(@"CREATE FUNCTION calcOrderTotalValue(@order_id INT)
                     RETURNS FLOAT
                     AS
