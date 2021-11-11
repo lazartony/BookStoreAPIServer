@@ -12,6 +12,8 @@ namespace BookStoreAPIServer.Models
     {
         public Book()
         {
+            Title = "";
+            Author = "";
             Status = Status.InActive;
         }
         public int Id { get; set; }

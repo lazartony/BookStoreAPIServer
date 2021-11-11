@@ -32,6 +32,7 @@ namespace BookStoreAPIServer.Models
         public bool HasRegistered { get; set; }
 
         public string LoginProvider { get; set; }
+        public bool IsAdmin { get; set; }
     }
 
     public class UserLoginInfoViewModel

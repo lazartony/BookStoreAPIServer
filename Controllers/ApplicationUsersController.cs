@@ -36,6 +36,7 @@ namespace BookStoreAPIServer.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: odata/ApplicationUsers
+        [Authorize(Roles = "Admin")]
         [EnableQuery]
         public IQueryable<ApplicationUser> GetApplicationUsers()
         {
@@ -43,6 +44,7 @@ namespace BookStoreAPIServer.Controllers
         }
 
         // GET: odata/ApplicationUsers(5)
+        [Authorize(Roles = "Admin")]
         [EnableQuery]
         public SingleResult<ApplicationUser> GetApplicationUser([FromODataUri] string key)
         {
@@ -87,6 +89,7 @@ namespace BookStoreAPIServer.Controllers
         }
 
         // POST: odata/ApplicationUsers
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult Post(ApplicationUser applicationUser)
         {
             if (!ModelState.IsValid)
@@ -116,6 +119,7 @@ namespace BookStoreAPIServer.Controllers
         }
 
         // PATCH: odata/ApplicationUsers(5)
+        [Authorize(Roles = "Admin")]
         [AcceptVerbs("PATCH", "MERGE")]
         public IHttpActionResult Patch([FromODataUri] string key, Delta<ApplicationUser> patch)
         {
@@ -154,6 +158,7 @@ namespace BookStoreAPIServer.Controllers
         }
 
         // DELETE: odata/ApplicationUsers(5)
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult Delete([FromODataUri] string key)
         {
             ApplicationUser applicationUser = db.Users.Find(key);
@@ -169,6 +174,7 @@ namespace BookStoreAPIServer.Controllers
         }
 
         // GET: odata/ApplicationUsers(5)/Cart
+        [Authorize(Roles = "Admin")]
         [EnableQuery]
         public SingleResult<Cart> GetCart([FromODataUri] string key)
         {
@@ -176,6 +182,7 @@ namespace BookStoreAPIServer.Controllers
         }
 
         // GET: odata/ApplicationUsers(5)/Claims
+        [Authorize(Roles = "Admin")]
         [EnableQuery]
         public IQueryable<IdentityUserClaim> GetClaims([FromODataUri] string key)
         {
@@ -183,6 +190,7 @@ namespace BookStoreAPIServer.Controllers
         }
 
         // GET: odata/ApplicationUsers(5)/Logins
+        [Authorize(Roles = "Admin")]
         [EnableQuery]
         public IQueryable<IdentityUserLogin> GetLogins([FromODataUri] string key)
         {
@@ -190,6 +198,7 @@ namespace BookStoreAPIServer.Controllers
         }
 
         // GET: odata/ApplicationUsers(5)/Orders
+        [Authorize(Roles = "Admin")]
         [EnableQuery]
         public IQueryable<Order> GetOrders([FromODataUri] string key)
         {
@@ -197,6 +206,7 @@ namespace BookStoreAPIServer.Controllers
         }
 
         // GET: odata/ApplicationUsers(5)/Roles
+        [Authorize(Roles = "Admin")]
         [EnableQuery]
         public IQueryable<IdentityUserRole> GetRoles([FromODataUri] string key)
         {
@@ -204,6 +214,7 @@ namespace BookStoreAPIServer.Controllers
         }
 
         // GET: odata/ApplicationUsers(5)/WishListItems
+        [Authorize(Roles = "Admin")]
         [EnableQuery]
         public IQueryable<WishListItem> GetWishListItems([FromODataUri] string key)
         {

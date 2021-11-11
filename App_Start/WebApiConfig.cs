@@ -8,6 +8,7 @@ using Newtonsoft.Json.Serialization;
 using System.Web.Http.OData.Builder;
 using System.Web.Http.OData.Extensions;
 using BookStoreAPIServer.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace BookStoreAPIServer
 {
@@ -43,6 +44,9 @@ namespace BookStoreAPIServer
             builder.EntitySet<ApplicationUser>("ApplicationUsers");
             builder.EntitySet<Cart>("Carts");
             builder.EntitySet<FeaturedItem>("FeaturedItems");
+            builder.EntitySet<IdentityUserClaim>("IdentityUserClaims");
+            builder.EntitySet<IdentityUserLogin>("IdentityUserLogins");
+            builder.EntitySet<IdentityUserRole>("IdentityUserRoles");
             config.Routes.MapODataServiceRoute("odata", "odata", builder.GetEdmModel());
 
         }

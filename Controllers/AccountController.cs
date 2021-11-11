@@ -62,7 +62,8 @@ namespace BookStoreAPIServer.Controllers
             {
                 Email = User.Identity.GetUserName(),
                 HasRegistered = externalLogin == null,
-                LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null
+                LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null,
+                IsAdmin = User.IsInRole("Admin")
             };
         }
 
